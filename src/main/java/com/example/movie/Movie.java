@@ -1,12 +1,17 @@
 package com.example.movie;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Movie {
     String title;
+
+    @JsonProperty("poster_path")
     String posterPath; /*(You will need to annotate this with @JsonProperty to make it match to poster_path)*/
+
     String overview;
+
     double popularity;
 
     public Movie() {

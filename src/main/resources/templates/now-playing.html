@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+Hello
+<a href="/">home</a><br/>
+<a href="/medium-popular-long-name.html">Medium and popular long name</a><br/>
+<a href="/now-playing.html">Now playing</a><br/>
+<p>These movies are playing in theaters:</p>
+<div>
+    <!--<th:block th:each="user : ${users}">-->
+    <th:block th:each="movie : ${movies}">
+        <span th:text="${movie.title}"></span>
+        <img width="150px" th:src="'http://image.tmdb.org/t/p/original' + ${movie.posterPath}"/>
+    </th:block>
+</div><br/>
+
+
+</body>
+</html>
