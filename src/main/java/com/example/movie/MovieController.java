@@ -22,13 +22,13 @@ String API_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=be2a385
     @RequestMapping(path = "/medium-popular-long-name", method = RequestMethod.GET)
     public String getMedium(Model model){
 
-        getMovies().stream()
+        List<Movie> test = getMovies(API_URL).stream()
                 .filter(e -> e.getPopularity() >= 30 && e.getPopularity() <= 80)
                 .filter(e -> e.getTitle().length() >= 10)
+                .collect(Collectors.toList() );
 
 
-        List<Movie> test = getMovies(API_URL);
-        model.addAttribute("movies", getMovies(API_URL));
+        model.addAttribute("movies", test);
         return "medium-popular-long-name";
     }
 
@@ -48,6 +48,7 @@ String API_URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=be2a385
         System.out.println(resultsPage.results);
         return resultsPage.results;
     }
+
 
 
 }
